@@ -1,8 +1,6 @@
 '''allan 8/2/2017'''
 class BinarySearch(list):
-     """
-        Searching for an item in a given list
-    """
+    '''declaring the parameters '''
     def __init__(self, a, b):
         self.a = a
         self.b = b
