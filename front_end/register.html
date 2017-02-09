@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Brea Cab Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.css" />
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="nd2settings.js"></script>
+   
+
+</head>
+<body>
+
+    <style>
+        .btn-default {
+            /*background-color: transparent;*/
+            margin-top: 5px;
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
+        }
+
+
+
+        .btn {
+            margin: 0 auto;
+            display: block;
+            margin-top: 25px;
+        }
+
+        .ss {
+            font-size: 50px !important;
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .glyphicon, .fa {
+            font-size: 30px;
+            margin-right: 0px;
+            margin-top: 15px;
+        }
+
+        .lblyangu {
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .i {
+            font-style: normal;
+        }
+
+        .btncenter {
+            margin-top: 6px !important;
+        }
+    </style>
+
+
+
+    <div data-role="page">
+
+        <script type="text/javascript" version="1.5">
+    confirmer = function () {
+
+        if (document.getElementById('txtname').value == "" || document.getElementById('txtmobile').value == "" || document.getElementById('txtemail').value == "") {
+            var resultContent = $("#listresponseutility");
+            var resData1 = "";
+            var data = "Please fill in all fields";
+
+            resData1 = '<p>' + data + '</p>';
+
+            resData1 = resData1 + '<a href="#" data-rel="back" data-role="button" data-inline="true" class="btn-ondialog ui-btn ui-btn-primary"><i class="zmdi zmdi-cancel"></i> OK</a>';
+
+            resultContent.html(resData1);
+            // $("#popupDialog1").popup('close');
+            $("#popupDialogutility1").popup();
+            $("#popupDialogutility1").popup('open');
+        }
+
+        else {
+
+
+
+            var resultContent = $("#listconfirmutility");
+            var resData1 = "";
+
+            var data = "Register with the following details?" + "<br />" +
+            " Name: " + document.getElementById('txtname').value + "<br />" +
+            " Telephone: " + document.getElementById('txtmobile').value + "<br />" +
+            " Email: " + document.getElementById('txtemail').value + "";
+
+
+            resData1 = '<p>' + data + '</p>';
+            resData1 = resData1 + '<a href="#" data-rel="back" data-role="button" data-inline="true" class="btn-ondialog ui-btn ui-btn-primary"><i class="zmdi zmdi-cancel"></i> No</a>';
+            resData1 = resData1 + '<a onclick="register();" rel="external" class="btn-ondialog ui-btn ui-btn-primary" >Yes</a>';
+
+
+            resultContent.html(resData1);
+            // $("#popupDialog1").popup('close');
+            $("#popupDialogutility").popup();
+            $("#popupDialogutility").popup('open');
+
+
+
+        };
+    };
+        </script>
+
+
+       
+            register = function () {
+
+                $("#popupDialogutility").popup('close');
+
+                var stringbal = "RegistrationTelephone" + "" + document.getElementById('txtmobile').value + "Name" + "" + document.getElementById('txtname').value + "Email" + document.getElementById('txtemail').value + "}";
+
+
+                var result = "";
+                var resultContent = $("#listresponseutility");
+
+               
+
+                $('div.ui-loader').show();
+                $.ajax({
+                    type: "GET",
+                    //data: data,
+                    url: serviceUrl
+                }).done(function (data) {
+                    //alert(data);
+
+                    if (data.lastIndexOf("{", 0) != 0) {
+                        //login failed
+
+                        var resData1 = "";
+
+                        if (data == "")
+                            data = "Sorry request could not completed. Please try again later";
+
+                        resData1 = '<p>' + data + '</p>';
+
+                        resData1 = resData1 + '<a href="#" data-rel="back" class="ui-btn ui-btn-raised clr-primary wow fadeIn" >OK</a>';
+
+                        resultContent.html(resData1)
+
+                        $("#popupDialogutility1").popup();
+                        $("#popupDialogutility1").popup('open');
+                    }
+                    else {
+                        //success log in go to quick links
+                        var resData = "";
+
+                        resData = '<p>Success</p>';
+
+                        resData = '<a href="individuallogin.html" rel="external" class="ui-btn ui-btn-raised clr-primary">OK</a>';
+
+                        if (data == "")
+                            data = "Sorry request could not completed. Please try again later";
+
+
+                        resultContent.html(data.substring(1) + resData)
+                        //$("#popupDialog1").popup('close');+
+                        $("#popupDialogutility1").popup();
+                        $("#popupDialogutility1").popup('open');
+                    }
+
+                    $('div.ui-loader').hide();
+
+                }).error(function (jqXHR, textStatus, errorThrown) {
+                    //alert(jqXHR.responseText || textStatus);
+
+                    var resData = "";
+
+                    resData = '<p>Error real</p>';
+
+                    resData = resData + '<a href="#" data-rel="back" class="ui-btn ui-btn-raised clr-primary">Try Again</a>';
+
+                    resultContent.html(resData)
+                    $("#popupDialogutility1").popup();
+                    $("#popupDialogutility1").popup('open');
+                });
+
+            };
+        </script>
+
+        <!-- panel left -->
+        <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true">
+
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'> <img style="width: 100%;    margin-bottom: -20px;" src="img/examples/breacabs.png" /></h1>
+            </div>
+
+
+
+            <br /><br />
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="index.html" rel="external"><h3>QUICK LINKS</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="corporatelogin.html" rel="external"><h3>Corporate Account</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="individuallogin.html" rel="external"><h3>Invidual Account</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="history.html" rel="external"><h3>View History</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="favourites.html" rel="external"><h3>My Favourites</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="customercare.html" rel="external"><h3>Customer Service</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="locateus.html" rel="external"><h3>Locate Us</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="index.html" rel="external"><h3>SIGN OUT</h3></a></li>
+            </ul>
+
+        </div>
+        <!-- /panel left -->
+
+        <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+            <div class='row around-xs'>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Clipboard</strong></a>
+                </div>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-fire zmd-2x'></i><strong>Hot Stuff</strong></a>
+                </div>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-cloud-outline-alt zmd-2x'></i><strong>Cloud</strong></a>
+                </div>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-format-color-fill zmd-2x'></i><strong>Fillcolor</strong></a>
+                </div>
+            </div>
+
+        </div>
+        <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+            <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+            <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+            <!--<h1 class="wow fadeIn" data-wow-delay='0.4s'>Brea Cabs Mobile</h1>-->
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> <img style="width: 100%;    margin-bottom: -20px;" src="img/examples/breacabs.png" /></h1>
+        </div>
+        <div role="main" class="ui-content" data-inset="false">
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="box">
+
+                        <label for="txtname">Full Names:</label>
+                        <input type="text" name="txtname" id="txtname" value="" data-clear-btn="true" placeholder="eg John Doe">
+
+
+                        <label for="txtmobile">Telephone Number:</label>
+                        <input type="number" maxlength="10" name="txtmobile" id="txtmobile" value="" data-clear-btn="true" placeholder="eg 07XXXXXXXX">
+
+                        <label for="txtemail">Email:</label>
+                        <input type="email" name="txtemail" id="txtemail" value="" data-clear-btn="true" placeholder="john@doe.com">
+
+
+                       
+
+
+                        <a onclick="confirmer();"  class="ui-btn"><i class="zmdi zmdi-key ui-pull-left"></i>Sign Up</a>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div data-role="popup" id="popupDialogutility">
+                <div data-role="header">
+                    <h1 class='nd-title'>Confirm Details</h1>
+                </div>
+                <div data-role="content" id="divContentutility">
+                    <ul data-role="listview" data-icon="false" id="listconfirmutility"></ul>
+
+                </div>
+            </div>
+
+            <div data-role="popup" id="popupDialogutility1" data-dismissible="false">
+                <div data-role="header">
+                    <h1 class='nd-title'>Breacabs</h1>
+                </div>
+                <div data-role="content" id="divContentutility1">
+                    <ul data-role="listview" data-icon="false" id="listresponseutility"></ul>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+   
+
+</body>
+</html>
