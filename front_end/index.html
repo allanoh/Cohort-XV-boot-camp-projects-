@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Brea Cab Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.css" />
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+   
+   
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.mobile.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="nd2settings.js"></script>
+
+    <script>
+        function showme() {
+            return localStorage.getItem("telephone")
+        };
+
+    </script>
+
+  
+
+</head>
+<body>
+
+    <style>
+        .btn-default {
+            /*background-color: transparent;*/
+            margin-top: 5px;
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
+        }
+
+
+
+        .btn {
+            margin: 0 auto;
+            display: block;
+            margin-top: 25px;
+        }
+
+        .ss {
+            font-size: 50px !important;
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .glyphicon, .fa {
+            font-size: 30px;
+            margin-right: 0px;
+            margin-top: 15px;
+        }
+
+        .lblyangu {
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .i {
+            font-style: normal;
+        }
+
+        .btncenter {
+            margin-top: 6px !important;
+        }
+    </style>
+
+
+
+    <div data-role="page">
+
+       
+
+       
+        <!-- panel left -->
+        <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true">
+
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'> <img style="width: 100%;    margin-bottom: -20px;" src="img/examples/breacabs.png" /></h1>
+            </div>
+
+
+
+            <br /><br />
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="index.html" rel="external"><h3>QUICK LINKS</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="corporatelogin.html" rel="external"><h3>Corporate Account</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="individuallogin.html" rel="external"><h3>Invidual Account</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="history.html" rel="external"><h3>View History</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="favourites.html" rel="external"><h3>My Favourites</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="customercare.html" rel="external"><h3>Customer Service</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="locateus.html" rel="external"><h3>Locate Us</h3></a></li>
+            </ul>
+
+            <ul data-role="listview" data-inset="false">
+                <li><a href="index.html" rel="external"><h3>SIGN OUT</h3></a></li>
+            </ul>
+
+        </div>
+        <!-- /panel left -->
+
+
+        
+
+        <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+          
+            <div class='row around-xs'>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Clipboard</strong></a>
+                </div>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-fire zmd-2x'></i><strong>Hot Stuff</strong></a>
+                </div>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-cloud-outline-alt zmd-2x'></i><strong>Cloud</strong></a>
+                </div>
+                <div class='col-xs-auto'>
+                    <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-format-color-fill zmd-2x'></i><strong>Fillcolor</strong></a>
+                </div>
+            </div>
+
+        </div>
+        <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+            <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+            <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+            <!--<h1 class="wow fadeIn" data-wow-delay='0.4s'>Brea Cabs Mobile</h1>-->
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'> <img  style="width: 100%;    margin-bottom: -20px;" src="img/examples/breacabs.png" /></h1>
+        </div>
+        <div role="main" class="ui-content" data-inset="false">
+           
+            <table id="Table1" style="width: 100%">
+                <tr style="height: 100%; position: relative;">
+                    <td>
+                        <a href="corporatelogin.html" rel="external" id="btnbal" class="btn btn-default btn-circle btn-xl ">
+                            <span aria-hidden="true" class="ss zmdi zmdi-receipt"></span>
+                        </a>
+
+
+                    </td>
+                    <td>
+                        <a href="individuallogin.html" rel="external" id="btnsend" class="btn btn-default btn-circle btn-xl">
+                            <span aria-hidden="true" class="ss zmdi zmdi-smartphone-android"></span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label id="Label1" class="lblyangu">Corporate Account</label>
+                    </td>
+
+                    <td>
+                        <label id="Label2" class="lblyangu" style="float: right">Individual Account</label>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="history.html" rel="external" id="btnutility" class="btn btn-default btn-circle btn-xl">
+                            <span aria-hidden="true" class="ss zmdi zmdi-card"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="favourites.html" rel="external" id="btnair" class="btn btn-default btn-circle btn-xl">
+                            <span aria-hidden="true" class="ss zmdi zmdi-card-sim "></span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label id="Label3" class="lblyangu">View History</label>
+                    </td>
+
+                    <td>
+                        <label id="Label4" class="lblyangu" style="float: right">My Favourites</label>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="customercare.html" rel="external" id="btnmove" class="btn btn-default btn-circle btn-xl">
+                            <span aria-hidden="true" class="ss zmdi zmdi-swap"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a onclick="window.location='locateus.html'" id="btnlocate" class="btn btn-default btn-circle btn-xl">
+                            <span aria-hidden="true" class="ss zmdi zmdi-pin-drop"></span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label id="Label5" class="lblyangu">Customer Service</label>
+                    </td>
+
+                    <td>
+                        <label id="Label6" class="lblyangu" style="float: right">Locate Us</label>
+                    </td>
+
+                </tr>
+
+
+
+            </table>
+
+        </div>
+
+
+
+
+
+    </div>
+
+    
+
+</body>
+</html>
